@@ -32,12 +32,11 @@ RUN cd /app && \
 
 EXPOSE 7860
 
-CMD sh -c ' \
-    if [ "$MODE" = "apache" ]; then \
+CMD if [ "$MODE" = "apache" ]; then \
         sed -i "s/Listen 80/Listen 7860/" /etc/apache2/ports.conf && \
-        sed -i "s/<VirtualHost \\*:80>/<VirtualHost *:7860>/" /etc/apache2/sites-available/000-default.conf && \
+        sed -i "s/<VirtualHost \:80>/<VirtualHost \:7860>/g" /etc/apache2/sites-available/000-default.conf && \
         rm -rf /var/www/html/index.html && \
-        apachectl -D FOREGROUND; \
+        apache2ctl -D FOREGROUND; \
     else \
         cd /app/djangotutorial && \
         python3 manage.py makemigrations && \
