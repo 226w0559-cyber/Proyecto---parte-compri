@@ -39,6 +39,9 @@ CMD sh -c ' \
         rm -rf /var/www/html/index.html && \
         apachectl -D FOREGROUND; \
     else \
-        cd /app/djangotutorial && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py createsuperuser --no-input; python3 manage.py runserver 00.00.00.00:7860; \
-    fi \
+        cd /app/djangotutorial && \
+        python3 manage.py makemigrations && \
+        python3 manage.py migrate && \
+        python3 manage.py runserver 0.0.0.0:7860; \
+    fi\
 '
