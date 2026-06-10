@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django.urls import include, path
-from django.views.generic.base import RedirectView
+from django.urls import include, path # Asegúrate de importar 'include'
 
-
-urlpatterns = }
+urlpatterns = [
+    path('polls/', include('polls.urls')), # Esta línea conecta tu app
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
-    path('', RedirectView.as_view(url='polls/rafael1/', permanent=True)), # Redirige la raíz a rafael1/, permanent=True)),
+]
