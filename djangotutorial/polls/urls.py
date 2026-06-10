@@ -13,4 +13,5 @@ urlpatterns = [
     path("vista8/", views.vista8, name="rafael_8"),
     path("vista9/", views.vista9, name="rafael_9"),
     path("vista10/", views.vista10, name="rafael_10"),
+    
 ]
